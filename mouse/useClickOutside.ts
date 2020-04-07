@@ -1,6 +1,4 @@
-import { RefObject, useCallback } from "react";
-
-import { useClientEffect } from "../utility";
+import { RefObject, useCallback, useEffect } from "react";
 
 // NOTE: mouse event handler defined here rather than imported from react becase
 // the event listener will return a native event, not a synthetic event
@@ -14,14 +12,14 @@ type UseClickOutsideProps = {
 export function useClickOutside({
   handler,
   refs,
-  listenWhen
+  listenWhen,
 }: UseClickOutsideProps) {
   const handleMouseDown = useCallback(
     (event: MouseEvent) => {
       // bail on mouse down "inside" any of the provided refs
       if (
         refs.some(
-          ref => ref.current && ref.current.contains(event.target as Node)
+          (ref) => ref.current && ref.current.contains(event.target as Node)
         )
       ) {
         return;
@@ -32,7 +30,7 @@ export function useClickOutside({
     [handler, refs]
   );
 
-  useClientEffect(() => {
+  useEffect(() => {
     if (listenWhen) {
       document.addEventListener("mousedown", handleMouseDown);
 
