@@ -1,0 +1,7 @@
+{
+	proseWrap: 'preserve',
+	arrowParens: 'avoid',
+	singleQuote: true,
+	trailingComma: 'es5',
+	useTabs: true,
+}
