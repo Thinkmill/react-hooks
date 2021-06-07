@@ -1,8 +1,9 @@
+import { HTMLAttributes } from 'react';
 import Link from 'next/link';
 
 import { Wrapper } from './Wrapper';
 
-export function Header(props: any) {
+export function Header(props: HTMLAttributes<HTMLElement>) {
 	return (
 		<header
 			css={{
