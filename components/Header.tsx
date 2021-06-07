@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { Wrapper } from './Wrapper';
 
-export function Header(props) {
+export function Header(props: any) {
 	return (
 		<header
 			css={{

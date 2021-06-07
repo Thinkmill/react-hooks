@@ -10,6 +10,12 @@ const fadeIn = keyframes`
     opacity: 1;
   }
 `;
+
+type EmojiProps = {
+	symbol: React.ReactNode;
+	alt: string;
+};
+
 /*
  * The Emoji component makes emojis more accessible to people:
  * - who have difficulty seeing the difference between a crying face and a laughing face
@@ -18,12 +24,12 @@ const fadeIn = keyframes`
  *
  * Read more here: https://adrianroselli.com/2016/12/accessible-emoji-tweaked.html
  */
-export function Emoji({ symbol, alt, ...props }) {
+export function Emoji({ symbol, alt, ...props }: EmojiProps) {
 	return (
 		<span
 			role="img"
 			aria-label={alt}
-			tabIndex="0"
+			tabIndex={0}
 			css={{
 				position: 'relative',
 				':focus:after,:hover:after': {
