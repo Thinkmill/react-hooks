@@ -10,16 +10,27 @@ import { reset } from './reset';
 
 const DOMAIN = 'https://example.com';
 
+type LayoutProps = {
+	children: React.ReactNode;
+	title?: string;
+	description?: string;
+	ogImage?: {
+		url: string;
+		width: string;
+		height: string;
+	};
+};
+
 export function Layout({
 	children,
 	title = 'Thinkmill React Hooks',
 	description = 'A Thinkmill guide to using React Hooks in front-end projects',
 	ogImage, //= {
-	//   url: '/og-image.png',
-	//   width: 1522,
-	//   height: 820,
-	// },
-}) {
+}: //   url: '/og-image.png',
+//   width: 1522,
+//   height: 820,
+// },
+LayoutProps) {
 	const router = useRouter();
 
 	return (
